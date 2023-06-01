@@ -6,4 +6,5 @@
     </style>
 
     <style name="Theme.WeatherForecast" parent="Base.Theme.WeatherForecast" />
+    <!--CUSTOM-->
 </resources>

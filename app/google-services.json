@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "951092010483",
+    "project_id": "weatherforcast-intertship",
+    "storage_bucket": "weatherforcast-intertship.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951092010483:android:83016e69511604d84ac686",
+        "android_client_info": {
+          "package_name": "com.example.weatherforecast"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951092010483-jr0h9s0u01sbstdgo731ivn61u0oicda.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.weatherforecast",
+            "certificate_hash": "3684fedf3b182c48e4242134b399cb1c4b9a4924"
+          }
+        },
+        {
+          "client_id": "951092010483-idasfme8foto3l5ooj8bf9grbs7j52db.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzw5XdNa-XeiwhcXEoDsH9XavvF-q-BDQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951092010483-idasfme8foto3l5ooj8bf9grbs7j52db.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
