@@ -1,10 +1,11 @@
-package com.example.weatherforecast
+package com.example.weatherforecast.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.example.weatherforecast.R
 import com.example.weatherforecast.databinding.ActivityAuthBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -25,11 +26,12 @@ class AuthActivity : AppCompatActivity() {
     lateinit var btnSignIn: SignInButton
     lateinit var googleSignClient: GoogleSignInClient
 
-    override fun onCreate(Sizlle: Bundle?) {
-        super.onCreate(Sizlle)
+    override fun onCreate(savedInstanceState : Bundle?) {
+        super.onCreate(savedInstanceState )
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        // Устанавливаем цвет текста StatusBar на черный
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         btnSignIn = findViewById(R.id.btnAuthGoogle)
         // Иницифлизируем параметры входа в систему
         val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

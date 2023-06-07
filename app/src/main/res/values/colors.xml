@@ -2,4 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!-- Gradient drawer menu -->
+    <color name="start_color">#1F1F25</color>
+    <color name="end_color">#FF2F313A</color>
+    <!-- StatusBar -->
+    <color name="status_bar_color">#333640</color>
+    <!-- ActionBar -->
+    <color name="action_bar_color">#4B4D5C</color>
+    <!-- Text color on ActionBar -->
+    <color name="action_bar_text_color">#FF2E8991</color>
+    <!-- Menu header -->
+    <color name="menu_header">#FF191A1E</color>
 </resources>
