@@ -1,5 +1,6 @@
 package com.example.weatherforecast.activities
 
+import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -83,20 +84,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         // Клиент для входа в Google, используемый для выполнения операции выхода из аккаунта
         googleSignInClient = GoogleSignIn.getClient(this@MainActivity, GoogleSignInOptions.DEFAULT_SIGN_IN)
-        // Обработчик события выхода из Google аккаунта
         ibLogout.setOnClickListener {
-            googleSignInClient.signOut().addOnCompleteListener { task ->
-                // Проверка состояния выполнения операции выхода из аккаунта
-                if (task.isSuccessful) {
-                    // Выход из Firebase после успешного выхода из Google аккаунта
-                    firebaseAuth.signOut()
-                    Toast.makeText(applicationContext, "Logout successful", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this@MainActivity, AuthActivity::class.java)
-                    // После перехода на AuthActivity убиваем MainActivity
-                    startActivity(intent)
-                    finish()
-                }
-            }
+            // Вызов метода для отображения диалогового окна подтверждения выхода из аккаунта
+            showLogoutConfirmationDialog()
+            // Закрытие Navigation Drawer после клика на кнопку
+            drawerLayout.closeDrawer(GravityCompat.START)
         }
     }
 
@@ -126,6 +118,35 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             // Иначе, вызываем обработчик системной кнопки "Назад"
             onBackPressedDispatcher.onBackPressed()
         }
+    }
+
+    /**
+     * Отображает диалоговое окно подтверждения выхода из аккаунта.
+     * При нажатии ImageButton Logout, данное диалоговое окно запрашивает у пользователя подтверждение на выход из его аккаунта.
+     * Если пользователь подтверждает, происходит выход из аккаунта Google и Firebase, а затем происходит перенаправление на AuthActivity.
+     * Если пользователь отменяет действие, диалоговое окно закрывается без выполнения дополнительных действий.
+     */
+    private fun showLogoutConfirmationDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Log out")
+        builder.setMessage("Are you sure you want to log out of your account?")
+        builder.setPositiveButton("Log out") { dialog, which ->
+            // Обработчик события выхода из Google аккаунта
+            googleSignInClient.signOut().addOnCompleteListener { task ->
+                // Проверка состояния выполнения операции выхода из аккаунта
+                if (task.isSuccessful) {
+                    // Выход из Firebase после успешного выхода из Google аккаунта
+                    firebaseAuth.signOut()
+                    Toast.makeText(applicationContext, "Logout successful", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this@MainActivity, AuthActivity::class.java)
+                    // После перехода на AuthActivity убиваем MainActivity
+                    startActivity(intent)
+                    finish()
+                }
+            }
+        }
+        builder.setNegativeButton("Cancel", null)
+        builder.show()
     }
 
 }
