@@ -7,16 +7,41 @@
     android:layout_height="match_parent"
     tools:context=".fragments.HomeFragment">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
+    <!-- Краткая информация погоды на сегодня -->
+    <include
+        android:id="@+id/includeWeatherCurrent"
+        layout="@layout/weather_current"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Home"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/viewDottedLine"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/dotted_line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/includeWeatherCurrent" />
+
+    <!-- Погода почасово -->
+
+
+    <!-- Погода по дням -->
+
+
+    <!-- Детальная погода на сегодня -->
+
+
+    <!-- Качество воздуха -->
+
+
+    <!-- Восход и закат солнца и луны -->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

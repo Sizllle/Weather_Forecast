@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer-array name="weather_ids_thunderstorm">
+        <item>210</item>
+        <item>211</item>
+        <item>212</item>
+        <item>221</item>
+    </integer-array>
+
+    <integer-array name="weather_ids_thunderstorm_with_rain">
+        <item>200</item>
+        <item>201</item>
+        <item>230</item>
+        <item>231</item>
+    </integer-array>
+
+    <integer-array name="weather_ids_thunderstorm_with_heavy_rain">
+        <item>202</item>
+        <item>232</item>
+    </integer-array>
+
+    <integer-array name="weather_ids_drizzle">
+        <item>300</item>
+        <item>301</item>
+        <item>302</item>
+        <item>310</item>
+        <item>311</item>
+        <item>312</item>
+        <item>313</item>
+        <item>314</item>
+        <item>321</item>
+        <item>500</item>
+        <item>520</item>
+    </integer-array>
+
+    <integer-array name="weather_ids_rain">
+        <item>501</item>
+        <item>502</item>
+        <item>503</item>
+        <item>504</item>
+        <item>521</item>
+        <item>522</item>
+        <item>531</item>
+    </integer-array>
+
+    <integer-array name="weather_ids_freezing_rain">
+        <item>511</item>
+    </integer-array>
+
+    <integer-array name="weather_ids_snow">
+        <item>600</item>
+        <item>601</item>
+    </integer-array>
+
+    <integer-array name="weather_ids_snowfall">
+        <item>602</item>
+        <item>622</item>
+    </integer-array>
+
+    <integer-array name="weather_ids_wet_snow">
+        <item>611</item>
+        <item>612</item>
+        <item>613</item>
+        <item>615</item>
+        <item>616</item>
+        <item>620</item>
+        <item>621</item>
+    </integer-array>
+
+    <integer-array name="weather_ids_fog">
+        <item>701</item>
+        <item>711</item>
+        <item>721</item>
+        <item>741</item>
+        <item>762</item>
+        <item>771</item>
+    </integer-array>
+
+    <integer-array name="weather_ids_sand">
+        <item>731</item>
+        <item>751</item>
+        <item>761</item>
+    </integer-array>
+
+    <integer-array name="weather_ids_tornado">
+        <item>781</item>
+    </integer-array>
+
+    <integer-array name="weather_ids_clear">
+        <item>800</item>
+    </integer-array>
+
+    <integer-array name="weather_ids_few_clouds">
+        <item>801</item>
+    </integer-array>
+
+    <integer-array name="weather_ids_scattered_clouds">
+        <item>802</item>
+    </integer-array>
+
+    <integer-array name="weather_ids_broken_clouds">
+        <item>803</item>
+        <item>804</item>
+    </integer-array>
+</resources>

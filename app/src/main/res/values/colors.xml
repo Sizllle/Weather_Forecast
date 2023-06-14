@@ -13,4 +13,7 @@
     <color name="action_bar_text_color">#FF2E8991</color>
     <!-- Menu header -->
     <color name="menu_header">#FF191A1E</color>
+    <!-- Home -->
+    <color name="oval_background">#262732</color>
+    <color name="dotted_line">#6A6B71</color>
 </resources>

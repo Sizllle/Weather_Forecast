@@ -12,4 +12,9 @@
     <string name="menu_settings">Settings</string>
     <string name="menu_feedback">Sed feedback</string>
     <string name="menu_rate">Rate this app</string>
+    <!-- Home Fragment | Current Weather -->
+    <string name="feels_like">Feels Like %1$s</string>
+    <string name="wind">Wind %s km/h</string>
+    <string name="unit_celsius">°C</string>
+    <string name="unit_fahrenheit">°F</string>
 </resources>
