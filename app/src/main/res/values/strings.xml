@@ -17,4 +17,6 @@
     <string name="wind">Wind %s km/h</string>
     <string name="unit_celsius">°C</string>
     <string name="unit_fahrenheit">°F</string>
+    <!-- Home Fragment | Hourly Weather -->
+    <string name="now">Now</string>
 </resources>

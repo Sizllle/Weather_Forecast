@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_home_fragment"
     tools:context=".fragments.HomeFragment">
 
     <!-- Краткая информация погоды на сегодня -->
@@ -30,7 +31,15 @@
         app:layout_constraintTop_toBottomOf="@+id/includeWeatherCurrent" />
 
     <!-- Погода почасово -->
-
+    <include
+        android:id="@+id/includeWeatherHourly"
+        layout="@layout/weather_hourly"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewDottedLine" />
 
     <!-- Погода по дням -->
 

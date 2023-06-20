@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="55dp"
+    android:layout_height="130dp"
+    android:layout_marginStart="13dp"
+    android:layout_marginEnd="13dp"
+    android:orientation="vertical"
+    android:background="@drawable/oval_background">
+
+    <TextView
+        android:id="@+id/tvTimeHourly"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:text="10:00"
+        android:textColor="@color/white"/>
+
+    <ImageView
+        android:id="@+id/ivWeatherHourly"
+        android:layout_width="35dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/tvTemperatureHourly"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:text="26"
+        android:textColor="@color/white"/>
+
+</LinearLayout>
