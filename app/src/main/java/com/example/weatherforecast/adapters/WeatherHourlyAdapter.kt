@@ -16,8 +16,11 @@ import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
 
-class WeatherHourlyAdapter(private val data: List<WeatherHourlyItem>, private val context: Context) :
-    RecyclerView.Adapter<WeatherHourlyAdapter.WeatherHourlyViewHolder>() {
+class WeatherHourlyAdapter(
+    private val data: List<WeatherHourlyItem>,
+    private val context: Context,
+    private val temperatureUnit: String
+    ) : RecyclerView.Adapter<WeatherHourlyAdapter.WeatherHourlyViewHolder>() {
 
     // Метод, вызываемый при создании нового ViewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeatherHourlyAdapter.WeatherHourlyViewHolder {
@@ -76,7 +79,7 @@ class WeatherHourlyAdapter(private val data: List<WeatherHourlyItem>, private va
             val weatherImageId = WeatherUtils.getWeatherImageId(context, item.weatherId, item.time, localTimeZome)
             ivWeather.setImageResource(weatherImageId)
 
-            tvTemperature.text = item.temperature
+            tvTemperature.text = "${item.temperature}$temperatureUnit"
         }
 
         // Метод для преобразования времени из секунд в формат Date с учетом временной зоны

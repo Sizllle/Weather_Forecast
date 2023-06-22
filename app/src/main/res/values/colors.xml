@@ -19,4 +19,6 @@
     <!-- Home -->
     <color name="oval_background">#262732</color>
     <color name="dotted_line">#6A6B71</color>
+    <!-- Settings Fragment -->
+    <color name="settings_fragment_background">#4B4D5C</color>
 </resources>

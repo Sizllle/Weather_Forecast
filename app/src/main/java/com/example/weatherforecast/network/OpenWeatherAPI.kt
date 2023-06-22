@@ -41,7 +41,7 @@ class OpenWeatherAPI (private val apiKey: String) {
 
     // Функция для получения почасовой погоды
     fun getHourlyWeather(latitude: Double, longitude: Double, unit: String, callback: (JSONObject?) -> Unit) {
-        val url = "https://api.openweathermap.org/data/3.0/onecall?lat=$latitude&lon=$longitude&units=metric&exclude=current,minutely,daily,alerts&appid=$apiKey"
+        val url = "https://api.openweathermap.org/data/3.0/onecall?lat=$latitude&lon=$longitude&units=$unit&exclude=current,minutely,daily,alerts&appid=$apiKey"
 
         val client = OkHttpClient()
         val request = Request.Builder()

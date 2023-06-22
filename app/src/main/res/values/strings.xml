@@ -19,4 +19,8 @@
     <string name="unit_fahrenheit">°F</string>
     <!-- Home Fragment | Hourly Weather -->
     <string name="now">Now</string>
+    <!-- Settings Fragment -->
+    <string name="temperature">Temperature</string>
+    <string name="celsius">Celsius</string>
+    <string name="fahrenheit">Fahrenheit</string>
 </resources>

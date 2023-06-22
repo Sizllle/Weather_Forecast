@@ -1,60 +1,111 @@
 package com.example.weatherforecast.fragments
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.weatherforecast.R
+import com.example.weatherforecast.databinding.FragmentSettingsBinding
+import com.example.weatherforecast.viewmodels.SharedViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SettingsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SettingsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private lateinit var binding: FragmentSettingsBinding
+    private lateinit var sharedViewModel: SharedViewModel
+    private lateinit var sharedPreferences: SharedPreferences
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false)
+        binding = FragmentSettingsBinding.inflate(inflater, container, false)
+        // Инициализация SharedViewModel
+        sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+        // Получение SharedPreferences для сохранения настроек
+        sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+
+        // Проверяем, было ли приложение запущено впервые
+        val isFirstRun = sharedPreferences.getBoolean("isFirstRun", true)
+        if (isFirstRun) {
+            // Установка значения по умолчанию в режиме Цельсия
+            sharedViewModel.setCelsiusSelected(true)
+            // Пометка о том, что приложение уже запускалось
+            sharedPreferences.edit().putBoolean("isFirstRun", false).apply()
+        }
+
+        setupTemperatureModes()
+        setupClickListeners()
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SettingsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SettingsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onResume() {
+        super.onResume()
+        // Восстановление режима температуры при возобновлении фрагмента
+        restoreTemperatureMode()
     }
+
+    override fun onPause() {
+        super.onPause()
+        // Сохранение режима температуры при приостановке фрагмента
+        saveTemperatureMode()
+        // Удаление значения isFirstRun при приостановке фрагмента
+        sharedPreferences.edit().remove("isFirstRun").apply()
+    }
+
+    // Настройка режимов температуры
+    private fun setupTemperatureModes() {
+        sharedViewModel.isCelsiusSelected.observe(viewLifecycleOwner) {isCelsiusSelected->
+            if (isCelsiusSelected) {
+                // Установка изображений для выбранного режима Цельсия
+                binding.ivTempCelsius.setImageResource(R.drawable.checkbox_enabled)
+                binding.ivTempFahrenheit.setImageResource(R.drawable.checkbox_disabled)
+            } else {
+                // Установка изображений для выбранного режима Фаренгейта
+                binding.ivTempCelsius.setImageResource(R.drawable.checkbox_disabled)
+                binding.ivTempFahrenheit.setImageResource(R.drawable.checkbox_enabled)
+            }
+        }
+    }
+
+    // Настройка обработчиков щелчков
+    private fun setupClickListeners() {
+        binding.llTempModeCelsius.setOnClickListener {
+            // Установка выбранного режима Цельсия
+            sharedViewModel.setCelsiusSelected(true)
+        }
+
+        binding.llTempModeFahrenheit.setOnClickListener {
+            // Установка выбранного режима Фаренгейта
+            sharedViewModel.setCelsiusSelected(false)
+        }
+    }
+
+    // Сохранение режима температуры в SharedPreferences
+    private fun saveTemperatureMode() {
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("isCelsiusSelected", sharedViewModel.isCelsiusSelected.value ?: true)
+        editor.apply()
+    }
+
+    // Восстановление режима температуры из SharedPreferences
+    private fun restoreTemperatureMode() {
+        val isCelsiusSelected = sharedPreferences.getBoolean("isCelsiusSelected", true)
+        if (!sharedPreferences.contains("isCelsiusSelected")) {
+            // Установка значения по умолчанию в режиме Цельсия, если настройка отсутствует
+            sharedViewModel.setCelsiusSelected(true)
+        } else {
+            // Восстановление сохраненного режима температуры
+            sharedViewModel.setCelsiusSelected(isCelsiusSelected)
+        }
+
+    }
+
 }
