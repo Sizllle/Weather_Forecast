@@ -5,7 +5,10 @@
     <!-- Gradient drawer menu -->
     <color name="start_color_menu">#1F1F25</color>
     <color name="end_color_menu">#FF2F313A</color>
-    <!-- Home Fragment -->
+    <!-- Gradient block item -->
+    <color name="start_block_item">#17181C</color>
+    <color name="end_block_item">#3317181C</color>
+    <!-- Gradient Home Fragment -->
     <color name="start_color_home_fragment">#464958</color>
     <color name="end_color_home_fragment">#2D2E36</color>
     <!-- StatusBar -->
@@ -19,6 +22,7 @@
     <!-- Home -->
     <color name="oval_background">#262732</color>
     <color name="dotted_line">#6A6B71</color>
+    <color name="temperature_indicator">#04DDF2</color>
     <!-- Settings Fragment -->
     <color name="settings_fragment_background">#4B4D5C</color>
 </resources>

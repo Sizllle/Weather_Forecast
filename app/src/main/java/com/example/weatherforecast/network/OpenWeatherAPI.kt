@@ -32,7 +32,7 @@ class OpenWeatherAPI (private val apiKey: String) {
             }
 
             override fun onFailure(call: Call, e: IOException) {
-                Log.e("OpenWeatherAPI", "Failed to fetch weather data: ${e.message}")
+                Log.e("OpenWeatherAPI", "Failed to fetch current weather data: ${e.message}")
                 // Вызов callback-функции с параметром null в случае ошибки
                 callback(null)
             }
@@ -64,5 +64,30 @@ class OpenWeatherAPI (private val apiKey: String) {
         })
     }
 
+    // Функция для получения еженедельного прогноза погоды
+    fun getWeeklyWeather(latitude: Double, longitude: Double, unit: String, callback: (JSONObject?) -> Unit) {
+        val url = "https://api.openweathermap.org/data/3.0/onecall?lat=$latitude&lon=$longitude&units=$unit&exclude=current,minutely,hourly,alerts&appid=$apiKey"
+
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url(url)
+            .build()
+
+        // Отправка асинхронного запроса к API OpenWeather
+        client.newCall(request).enqueue(object : Callback {
+            override fun onResponse(call: Call, response: Response) {
+                val jsonData = response.body?.string()
+                val jsonObject = jsonData?.let { JSONObject(it) }
+                // Вызов callback-функции с полученными данными о погоде
+                callback(jsonObject)
+            }
+
+            override fun onFailure(call: Call, e: IOException) {
+                Log.e("OpenWeatherAPI", "Failed to fetch weekly weather data: ${e.message}")
+                // Вызов callback-функции с параметром null в случае ошибки
+                callback(null)
+            }
+        })
+    }
 
 }
