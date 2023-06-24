@@ -4,37 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_splash_activity"
     tools:context=".activities.SplashActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <ImageView
+        android:id="@+id/ivWeatherLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Weather"
-        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26999998"
+        app:srcCompat="@drawable/logo_image" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvHeaderMainSplash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Forecast"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/splash_header_main"
+        android:textColor="@color/header_main"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivWeatherLogo" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvHeaderSecondarySplash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="@string/splash_header_secondary"
+        android:textColor="@color/header_secondary"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvHeaderMainSplash"
+        app:layout_constraintStart_toStartOf="@+id/tvHeaderMainSplash"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeaderMainSplash" />
+
+    <TextView
+        android:id="@+id/tvSignature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:text="Designed by Vlad Kuzminov"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/signature"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:typeface="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

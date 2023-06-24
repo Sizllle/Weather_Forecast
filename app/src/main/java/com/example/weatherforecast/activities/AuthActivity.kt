@@ -30,8 +30,6 @@ class AuthActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState )
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // Устанавливаем цвет текста StatusBar на черный
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         btnSignIn = findViewById(R.id.btnAuthGoogle)
         // Иницифлизируем параметры входа в систему
         val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

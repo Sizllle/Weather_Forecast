@@ -2,6 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!-- Splash | Auth -->
+    <color name="header_main">#0A0A22</color>
+    <color name="header_secondary">#8B95A2</color>
     <!-- Gradient drawer menu -->
     <color name="start_color_menu">#1F1F25</color>
     <color name="end_color_menu">#FF2F313A</color>
@@ -11,8 +14,16 @@
     <!-- Gradient Home Fragment -->
     <color name="start_color_home_fragment">#464958</color>
     <color name="end_color_home_fragment">#2D2E36</color>
+    <!-- Gradient Splash Activity -->
+    <color name="start_color_splash">#F3F5F8</color>
+    <color name="end_color_splash">#BFCFE4</color>
+    <!-- Gradient Auth Activity -->
+    <color name="start_color_auth">#494C5C</color>
+    <color name="end_color_auth">#373843</color>
     <!-- StatusBar -->
     <color name="status_bar_color">#333640</color>
+    <!-- StatusBar Auth -->
+    <color name="status_bar_color_auth">#373843</color>
     <!-- ActionBar -->
     <color name="action_bar_color">#4B4D5C</color>
     <!-- Text color on ActionBar -->

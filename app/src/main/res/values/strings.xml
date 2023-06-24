@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">Weather Forecast</string>
+    <!-- Splash -->
+    <string name="splash_header_main">Weather</string>
+    <string name="splash_header_secondary">Forecast</string>
+    <string name="signature">Developed by Vladyslav Kuzminov</string>
+    <!-- Auth -->
+    <string name="auth_header_main">Detailed Forecast</string>
+    <string name="auth_header_secondary">Get in - depth weather information</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open_nav">Open Navigation Drawer</string>
